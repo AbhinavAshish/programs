@@ -46,4 +46,55 @@ public class StringSolutions {
             return false;
         }
     }
+
+    //functions to replace space with %20
+
+    public char[] replacement(char[] str, int length) {
+
+        int numspaces = count(str, length);
+        char[] retrunstring = new char[length  + numspaces*2];
+        System.out.println(str);
+        int counter= 0;
+        for (int i = 0; i < length; i++) {
+
+            if (str[i] == ' ') {
+                retrunstring[counter] = '%';
+                retrunstring[counter +1] = '2';
+                retrunstring[counter+2] = '0';
+                counter+=3;
+                //System.out.println(retrunstring);
+                //System.out.println(str[i]);
+            }
+            else
+            {
+                retrunstring[counter]= str[i];
+                counter++;
+                //System.out.println(retrunstring);
+                //System.out.println(str[i]);
+            }
+        }
+        System.out.println(retrunstring);
+        return retrunstring;
+
+
+    }
+
+
+    //function to count number of spaces Solution ends here
+
+    public int count(char[] str, int length) {
+        int numberofspaces = 0;
+        for (int i = 0; i < length; i++) {
+            if (str[i] == ' ') {
+                //System.out.println(str[i]);
+                numberofspaces++;
+            }
+
+        }
+        return numberofspaces;
+
+    }
+
+    //Solution to question 4 ends here
+
 }

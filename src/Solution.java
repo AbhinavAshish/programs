@@ -6,6 +6,8 @@ public class Solution {
         StringSolutions sol = new StringSolutions();
         boolean result= sol.permutation("great","treag");
         System.out.println(result);
+        char [] abc = sol.replacement("Mr John Smith J       ".toCharArray(), 15);
+        System.out.println(abc);
     }
 
 }
