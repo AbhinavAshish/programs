@@ -52,22 +52,20 @@ public class StringSolutions {
     public char[] replacement(char[] str, int length) {
 
         int numspaces = count(str, length);
-        char[] retrunstring = new char[length  + numspaces*2];
+        char[] retrunstring = new char[length + numspaces * 2];
         System.out.println(str);
-        int counter= 0;
+        int counter = 0;
         for (int i = 0; i < length; i++) {
 
             if (str[i] == ' ') {
                 retrunstring[counter] = '%';
-                retrunstring[counter +1] = '2';
-                retrunstring[counter+2] = '0';
-                counter+=3;
+                retrunstring[counter + 1] = '2';
+                retrunstring[counter + 2] = '0';
+                counter += 3;
                 //System.out.println(retrunstring);
                 //System.out.println(str[i]);
-            }
-            else
-            {
-                retrunstring[counter]= str[i];
+            } else {
+                retrunstring[counter] = str[i];
                 counter++;
                 //System.out.println(retrunstring);
                 //System.out.println(str[i]);
@@ -96,5 +94,52 @@ public class StringSolutions {
     }
 
     //Solution to question 4 ends here
+
+    //Solution to problem 5 starts here
+
+    public int charnum(char[] str, int pos, int length) {
+        int i = pos;
+        int counter = 0;
+        if (i <length-1) {
+            if (str[i] == str[i + 1]) {
+                counter = counter + 1;
+                counter = counter + charnum(str, pos + 1,length);
+                return counter;
+
+            } else {
+                return counter;
+
+            }
+        }
+        else {
+            return counter;
+        }
+    }
+
+    public String zip (String str){
+        int num,j=0;
+        //String str="aabcccccaaa";
+        char[] result= new char[20];
+        char[] abc = str.toCharArray();
+        int strlength=str.length();
+        for (int i=0;i<strlength;i++){
+            result[j]=abc[i];
+            num = charnum(abc,i,strlength);
+            result[j+1]=Integer.toString(num+1).charAt(0);
+            //System.out.println(result);
+            //System.out.println(num);
+            j = j + 2;
+            i = i+num;
+        }
+
+        String first = new String(result);
+        first=first.trim();
+        String second = new String(str);
+
+        if (first.length()< second.length())
+        return first;
+        else
+        return second;
+    }
 
 }

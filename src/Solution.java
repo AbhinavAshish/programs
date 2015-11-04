@@ -8,6 +8,9 @@ public class Solution {
         System.out.println(result);
         char [] abc = sol.replacement("Mr John Smith J       ".toCharArray(), 15);
         System.out.println(abc);
+        String def  = sol.zip("aabbaaa");
+        System.out.println(def);
+        //aabcccccaaa
     }
 
 }
