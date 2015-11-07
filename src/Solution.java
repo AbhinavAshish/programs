@@ -13,7 +13,7 @@ public class Solution {
         String def  = sol.zip("aabbaaa");
         System.out.println(def);
         //aabcccccaaa
-        System.out.println(" Enter the size of a matrix");
+        /*System.out.println(" Enter the size of a matrix");
         Scanner user_input = new Scanner(System.in);
         int size = user_input.nextInt();
 
@@ -26,6 +26,21 @@ public class Solution {
                 System.out.print(" " + matrix [i][j]);
             }
         }
+*/
+
+        System.out.println(" Enter the row and column of a matrix");
+        Scanner user_input = new Scanner(System.in);
+        int row = user_input.nextInt();
+        int column= user_input.nextInt();
+        int[][] matrix= sol.inputMatrix(row, column);
+        matrix = sol.matrixSetZero(row,column,matrix);
+        for(int i=0;i<row;i++) {
+            System.out.println("");
+            for (int j = 0; j <column; j++) {
+                System.out.print(" " + matrix [i][j]);
+            }
+        }
+
 
 
     }

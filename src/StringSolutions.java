@@ -184,6 +184,64 @@ public class StringSolutions {
 
     }
 
+    //Solution to question 7 sETTING rows and columns as zero
+
+
+    public int [][] inputMatrix(int row,int column){
+        int i=0,j=0;
+        int [][]matrix= new int [row][column];
+        Scanner userInput= new Scanner(System.in);
+        for(i=0;i<row;i++) {
+            for (j = 0; j <column; j++) {
+                System.out.println(" Enter the values for" + (i+1)+(j+1) );
+                matrix [i][j] = userInput.nextInt();
+
+            }
+        }
+    return matrix;
+    }
+
+    public int [][] matrixSetZero(int row,int column,int[][] matrix) {
+        int i = 0, j = 0;
+        int countRow, countColumn;
+        Scanner userInput = new Scanner(System.in);
+        int[] rowNumber = new int[row];
+        int[] colNumber = new int[column];
+        countRow = 0;
+        countColumn = 0;
+        for (i = 0; i < row; i++) {
+            for (j = 0; j < column; j++) {
+                if (matrix[i][j] == 0) {
+                    rowNumber[countRow] = i;
+                    colNumber[countColumn] = j;
+                    countRow += 1;
+                    countColumn += 1;
+
+                }
+
+            }
+        }
+
+        for (i = 0; i <countRow; i++) {
+            for (j = 0; j < column; j++) {
+                //System.out.println(rowNumber[i] +" " + j );
+                matrix[rowNumber[i]][j] = 0;
+
+            }
+        }
+
+        for (j = 0; j < countColumn; j++) {
+            for (i = 0; i < row; i++) {
+                //System.out.println(i+" " + colNumber[j] );
+                matrix[i][colNumber[j]] = 0;
+
+            }
+        }
+
+        return matrix;
+
+    }
+
 
 }
 
