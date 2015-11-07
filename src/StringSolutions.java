@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * Created by Abhinav on 10/31/2015.
@@ -142,4 +143,48 @@ public class StringSolutions {
         return second;
     }
 
+
+//Solution to question number 6
+
+    public int[][] inputmatrix(int size ){
+        int i,j;
+        Scanner user_input = new Scanner(System.in);
+
+
+
+        int[][] matrix = new int [size][size];
+        for(i=0;i<size;i++) {
+            for (j = 0; j <size; j++) {
+                System.out.println("Enter the value for row "+ (i+1) + "column" + (j+1) );
+                matrix[i][j]= user_input.nextInt();
+            }
+        }
+        return matrix;
+    }
+
+    // Function to change the matrix 90 degrees
+    public int[][] matrixrotation(int[][] matrix,int size ){
+
+        int i=0,j=0;
+
+        int[][] temp = new int[size][size];
+        for(i=0;i<size;i++) {
+            for (j = 0; j < size; j++) {
+                temp[i][j] = matrix[i][j];
+            }
+        }
+
+        for(i=0;i<size;i++) {
+            for (j = 0; j <size; j++) {
+                matrix [j][size- (i+1)] = temp[i][j];
+            }
+        }
+
+        return matrix;
+
+    }
+
+
 }
+
+
