@@ -247,15 +247,15 @@ public class StringSolutions {
 
     public boolean checkStringRotation(String s1, String s2) {
         if (s1.length() != s2.length()) {
-            System.out.println(" Strings length don't match");
+            //System.out.println(" Strings length don't match");
             return false;
 
         } else {
             if ((s1 + s1).indexOf(s2) != -1) {
-                System.out.println(" Strings match");
+                //System.out.println(" Strings match");
                 return true;
             } else {
-                System.out.println(" Strings don't match");
+                //System.out.println(" Strings don't match");
                 return false;
             }
 
