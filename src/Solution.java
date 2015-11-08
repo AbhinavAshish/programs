@@ -28,7 +28,7 @@ public class Solution {
         }
 */
 
-        System.out.println(" Enter the row and column of a matrix");
+        /*System.out.println(" Enter the row and column of a matrix");
         Scanner user_input = new Scanner(System.in);
         int row = user_input.nextInt();
         int column= user_input.nextInt();
@@ -40,8 +40,14 @@ public class Solution {
                 System.out.print(" " + matrix [i][j]);
             }
         }
-
-
+*/
+        Scanner userInput = new Scanner(System.in);
+        System.out.println(" Enter String 1");
+        String s1= userInput.next();
+        System.out.println(" Enter String 2");
+        String s2= userInput.next();
+        boolean resultnew = sol.checkStringRotation(s1,s2);
+        System.out.println(resultnew);
 
     }
 

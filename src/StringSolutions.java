@@ -1,9 +1,12 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-/**
- * Created by Abhinav on 10/31/2015.
- */
+/*
+*
+        *Created by Abhinav on 10/31/2015.
+*/
+
+
 //This class contains functions for all the string related questions
 
 public class StringSolutions {
@@ -26,9 +29,8 @@ public class StringSolutions {
 
 
     // Function to check if two strings are permutaions of each other
-    /*
-    sort both of the strings and macth
-    */
+    //sort both of the strings and macth
+
 
     public boolean permutation(String string1, String string2) {
         char[] charArray1 = new char[string1.length()];
@@ -101,82 +103,80 @@ public class StringSolutions {
     public int charnum(char[] str, int pos, int length) {
         int i = pos;
         int counter = 0;
-        if (i <length-1) {
+        if (i < length - 1) {
             if (str[i] == str[i + 1]) {
                 counter = counter + 1;
-                counter = counter + charnum(str, pos + 1,length);
+                counter = counter + charnum(str, pos + 1, length);
                 return counter;
 
             } else {
                 return counter;
 
             }
-        }
-        else {
+        } else {
             return counter;
         }
     }
 
-    public String zip (String str){
-        int num,j=0;
+    public String zip(String str) {
+        int num, j = 0;
         //String str="aabcccccaaa";
-        char[] result= new char[20];
+        char[] result = new char[20];
         char[] abc = str.toCharArray();
-        int strlength=str.length();
-        for (int i=0;i<strlength;i++){
-            result[j]=abc[i];
-            num = charnum(abc,i,strlength);
-            result[j+1]=Integer.toString(num+1).charAt(0);
+        int strlength = str.length();
+        for (int i = 0; i < strlength; i++) {
+            result[j] = abc[i];
+            num = charnum(abc, i, strlength);
+            result[j + 1] = Integer.toString(num + 1).charAt(0);
             //System.out.println(result);
             //System.out.println(num);
             j = j + 2;
-            i = i+num;
+            i = i + num;
         }
 
         String first = new String(result);
-        first=first.trim();
+        first = first.trim();
         String second = new String(str);
 
-        if (first.length()< second.length())
-        return first;
+        if (first.length() < second.length())
+            return first;
         else
-        return second;
+            return second;
     }
 
 
 //Solution to question number 6
 
-    public int[][] inputmatrix(int size ){
-        int i,j;
+    public int[][] inputmatrix(int size) {
+        int i, j;
         Scanner user_input = new Scanner(System.in);
 
 
-
-        int[][] matrix = new int [size][size];
-        for(i=0;i<size;i++) {
-            for (j = 0; j <size; j++) {
-                System.out.println("Enter the value for row "+ (i+1) + "column" + (j+1) );
-                matrix[i][j]= user_input.nextInt();
+        int[][] matrix = new int[size][size];
+        for (i = 0; i < size; i++) {
+            for (j = 0; j < size; j++) {
+                System.out.println("Enter the value for row " + (i + 1) + "column" + (j + 1));
+                matrix[i][j] = user_input.nextInt();
             }
         }
         return matrix;
     }
 
     // Function to change the matrix 90 degrees
-    public int[][] matrixrotation(int[][] matrix,int size ){
+    public int[][] matrixrotation(int[][] matrix, int size) {
 
-        int i=0,j=0;
+        int i = 0, j = 0;
 
         int[][] temp = new int[size][size];
-        for(i=0;i<size;i++) {
+        for (i = 0; i < size; i++) {
             for (j = 0; j < size; j++) {
                 temp[i][j] = matrix[i][j];
             }
         }
 
-        for(i=0;i<size;i++) {
-            for (j = 0; j <size; j++) {
-                matrix [j][size- (i+1)] = temp[i][j];
+        for (i = 0; i < size; i++) {
+            for (j = 0; j < size; j++) {
+                matrix[j][size - (i + 1)] = temp[i][j];
             }
         }
 
@@ -187,21 +187,21 @@ public class StringSolutions {
     //Solution to question 7 sETTING rows and columns as zero
 
 
-    public int [][] inputMatrix(int row,int column){
-        int i=0,j=0;
-        int [][]matrix= new int [row][column];
-        Scanner userInput= new Scanner(System.in);
-        for(i=0;i<row;i++) {
-            for (j = 0; j <column; j++) {
-                System.out.println(" Enter the values for" + (i+1)+(j+1) );
-                matrix [i][j] = userInput.nextInt();
+    public int[][] inputMatrix(int row, int column) {
+        int i = 0, j = 0;
+        int[][] matrix = new int[row][column];
+        Scanner userInput = new Scanner(System.in);
+        for (i = 0; i < row; i++) {
+            for (j = 0; j < column; j++) {
+                System.out.println(" Enter the values for" + (i + 1) + (j + 1));
+                matrix[i][j] = userInput.nextInt();
 
             }
         }
-    return matrix;
+        return matrix;
     }
 
-    public int [][] matrixSetZero(int row,int column,int[][] matrix) {
+    public int[][] matrixSetZero(int row, int column, int[][] matrix) {
         int i = 0, j = 0;
         int countRow, countColumn;
         Scanner userInput = new Scanner(System.in);
@@ -222,7 +222,7 @@ public class StringSolutions {
             }
         }
 
-        for (i = 0; i <countRow; i++) {
+        for (i = 0; i < countRow; i++) {
             for (j = 0; j < column; j++) {
                 //System.out.println(rowNumber[i] +" " + j );
                 matrix[rowNumber[i]][j] = 0;
@@ -243,6 +243,24 @@ public class StringSolutions {
     }
 
 
-}
+    // Solution for question 1.8 . STring 1 is a rotation for string 2
+
+    public boolean checkStringRotation(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            System.out.println(" Strings length don't match");
+            return false;
+
+        } else {
+            if ((s1 + s1).indexOf(s2) != -1) {
+                System.out.println(" Strings match");
+                return true;
+            } else {
+                System.out.println(" Strings don't match");
+                return false;
+            }
+
+        }
+        }
+    }
 
 
