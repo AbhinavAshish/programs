@@ -9,23 +9,24 @@ import java.util.Scanner;
 public class SinglyLinkedlist {
     public static void main (String[] args){
         LinkedList  listOne = new LinkedList();
+        listOne.insertAtStart(10);
+        listOne.insertAtStart(20);
+        listOne.insertAtStart(30);
+        listOne.insertAtStart(40);
+        listOne.insertAtStart(30);
+        listOne.insertAtStart(40);
+        listOne.insertAtStart(10);
+        listOne.insertAtStart(40);
+        listOne.insertAtStart(50);
+        listOne.insertAtStart(70);
+        listOne.insertAtStart(40);
+        listOne.insertAtStart(40);
+        listOne.insertAtStart(40);
+        listOne.insertAtStart(40);
+        listOne.display();
+        listOne.deleteDuplicatesWithoutBuffer();
+        listOne.display();
 
-        listOne.insertAtEnd(5);
-        listOne.insertAtEnd(10);
-        listOne.insertAtEnd(15);
-        listOne.insertAtStart(15);
-        listOne.insertAtPos(11,2);
-        listOne.insertAtPos(12,4);
-        listOne.display();
-        listOne.deleteAtPos(1);
-        listOne.display();
-        listOne.deleteAtPos(2);
-        listOne.display();
-       listOne.deleteAtPos(4);
-        listOne.display();
-        listOne.deleteAtPos(1);
-        listOne.display();
-        System.out.println(listOne.size);
     }
 
 }
