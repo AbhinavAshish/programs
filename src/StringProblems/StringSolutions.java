@@ -1,3 +1,5 @@
+package StringProblems;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -81,7 +83,7 @@ public class StringSolutions {
     }
 
 
-    //function to count number of spaces Solution ends here
+    //function to count number of spaces StringProblems.Solution ends here
 
     public int count(char[] str, int length) {
         int numberofspaces = 0;
@@ -96,9 +98,9 @@ public class StringSolutions {
 
     }
 
-    //Solution to question 4 ends here
+    //StringProblems.Solution to question 4 ends here
 
-    //Solution to problem 5 starts here
+    //StringProblems.Solution to problem 5 starts here
 
     public int charnum(char[] str, int pos, int length) {
         int i = pos;
@@ -145,7 +147,7 @@ public class StringSolutions {
     }
 
 
-//Solution to question number 6
+//StringProblems.Solution to question number 6
 
     public int[][] inputmatrix(int size) {
         int i, j;
@@ -184,7 +186,7 @@ public class StringSolutions {
 
     }
 
-    //Solution to question 7 sETTING rows and columns as zero
+    //StringProblems.Solution to question 7 sETTING rows and columns as zero
 
 
     public int[][] inputMatrix(int row, int column) {
@@ -243,7 +245,7 @@ public class StringSolutions {
     }
 
 
-    // Solution for question 1.8 . STring 1 is a rotation for string 2
+    // StringProblems.Solution for question 1.8 . STring 1 is a rotation for string 2
 
     public boolean checkStringRotation(String s1, String s2) {
         if (s1.length() != s2.length()) {
