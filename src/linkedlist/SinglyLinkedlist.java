@@ -26,7 +26,12 @@ public class SinglyLinkedlist {
         listOne.display();
         listOne.deleteDuplicatesWithoutBuffer();
         listOne.display();
-
+        listOne.deleteElementCountedfromLast(3);
+        listOne.display();
+        Node tr;
+        tr =listOne.returnNodeatPos(3);
+        listOne.deletenode(tr);
+        listOne.display();
     }
 
 }

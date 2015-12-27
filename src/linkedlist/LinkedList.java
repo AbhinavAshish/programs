@@ -142,6 +142,32 @@ public class LinkedList {
 
     }
 
+
+    public void deleteElementCountedfromLast( int k){
+
+        int val= size - k;
+        deleteAtPos(val);
+    }
+
+    public Node returnNodeatPos(int pos){
+        Node temp= start;
+        for (int i=1;i<=size;i++){
+            if (i ==pos){return temp;}
+        temp=temp.getLink();
+        }
+        temp=null;
+        return temp;
+    }
+
+    public void deletenode(Node n){
+        Node temp = start;
+        for (int i=1;i<=size;i++){
+            if (temp==n){
+                deleteAtPos(i);
+            }
+        temp=temp.getLink();
+        }
+    }
 }
 
 
