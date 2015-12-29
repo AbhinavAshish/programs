@@ -27,6 +27,7 @@ public class Stack {
 
     }
 
+
     public void push(int value) {
 
         if (top == maxsize - 1) {
@@ -43,9 +44,9 @@ public class Stack {
         if (top == -1) {
             System.out.println("Stack is Empty");
         } else{
+            System.out.println("Removed Value" +stack[top]);
             stack[top] = 0;
             top = top - 1;
-
         }
 
     }
@@ -58,5 +59,15 @@ public class Stack {
         else{
             return min;
         }
+    }
+
+    public boolean isFull(){
+        if (top==maxsize-1){return true;}
+        return false;
+    }
+
+    public boolean isEmpty(){
+        if(top==-1){return true;}
+        return false;
     }
 }

@@ -35,14 +35,38 @@ public class StackSolutions {
         stack1.pop(3);
         System.out.println(stack1.top(3));
 */
-        Stack stacktwo= new Stack(3);
+        //Stack stacktwo= new Stack(3);
         //stacktwo.push(8);
         //stacktwo.push(2);
         //stacktwo.push(3);
-        System.out.println(stacktwo.top());
+        //System.out.println(stacktwo.top());
         //stacktwo.pop();
         //stacktwo.pop();
         //System.out.println(stacktwo.top());
-        System.out.println(stacktwo.min());
+        //System.out.println(stacktwo.min());
+
+
+        //Solution for Set of Stacks
+
+        SetofStacks stackset =new SetofStacks(2);
+        stackset.push(1);
+        stackset.display();
+        stackset.push(2);
+        stackset.display();
+        stackset.push(3);
+        stackset.display();
+        stackset.push(4);
+        stackset.display();
+
+        stackset.popAt(1);
+        stackset.popAt(2);
+        stackset.popAt(2);
+        stackset.popAt(1);
+
+        //stackset.popAt(1);
+
+
+
+
     }
 }
