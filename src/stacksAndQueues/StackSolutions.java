@@ -78,6 +78,7 @@ public class StackSolutions {
             sizethree.displaytoTower();
 */
 
+/*
 
         Queue abc = new Queue();
         abc.enqueue(1);
@@ -90,6 +91,20 @@ public class StackSolutions {
         abc.dequeue();
         abc.display();
 
+
+*/
+
+
+        StackAscending  stackasc= new StackAscending();
+        stackasc.enqueue(5);
+        stackasc.enqueue(2);
+        stackasc.enqueue(3);
+        stackasc.enqueue(2);
+        stackasc.enqueue(2);
+        stackasc.enqueue(0);
+        stackasc.display();
+        stackasc.ascending();
+        stackasc.display();
 
 
     }
