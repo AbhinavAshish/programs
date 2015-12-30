@@ -47,6 +47,7 @@ public class StackSolutions {
 
 
         //Solution for Set of Stacks
+/*
 
         SetofStacks stackset =new SetofStacks(2);
         stackset.push(1);
@@ -62,9 +63,32 @@ public class StackSolutions {
         stackset.popAt(2);
         stackset.popAt(2);
         stackset.popAt(1);
+*/
 
         //stackset.popAt(1);
 
+
+
+        /*
+
+         TowerofHanoi sizethree = new TowerofHanoi(3);
+            sizethree.displayFromTower();
+            sizethree.setname();
+            sizethree.solution();
+            sizethree.displaytoTower();
+*/
+
+
+        Queue abc = new Queue();
+        abc.enqueue(1);
+        abc.enqueue(2);
+        abc.enqueue(3);
+        abc.enqueue(4);
+        abc.display();
+        abc.dequeue();
+        abc.enqueue(5);
+        abc.dequeue();
+        abc.display();
 
 
 

@@ -8,6 +8,9 @@ public class Stack {
     private int top;
     private int maxsize;
     private int min;
+    public String name;
+
+
     public Stack(int maxsize) {
         this.maxsize = maxsize;
         stack = new int[maxsize];
@@ -51,6 +54,15 @@ public class Stack {
 
     }
 
+    public int popt() {
+
+            //System.out.println("Removed Value" +stack[top]);
+            int v= stack[top];
+            top = top - 1;
+            return v;
+
+    }
+
     public int min(){
         if (min==5000){
             System.out.println("Stack is empty");
@@ -69,5 +81,12 @@ public class Stack {
     public boolean isEmpty(){
         if(top==-1){return true;}
         return false;
+    }
+
+    public void display(){
+        int i;
+        for(i=top;i>=0;i--)
+            //System.out.println("hello");
+        System.out.println(stack[i]);
     }
 }
