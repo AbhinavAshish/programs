@@ -94,8 +94,9 @@ public class StackSolutions {
 
 */
 
+/*
 
-        StackAscending  stackasc= new StackAscending();
+        StackAscending stackasc = new StackAscending();
         stackasc.enqueue(5);
         stackasc.enqueue(2);
         stackasc.enqueue(3);
@@ -105,6 +106,25 @@ public class StackSolutions {
         stackasc.display();
         stackasc.ascending();
         stackasc.display();
+
+*/
+
+        CatsAndDogs shelter= new CatsAndDogs();
+        shelter.enqueueCats("cat1");
+        shelter.enqueueCats("cat2");
+        shelter.enqueueCats("cat3");
+        shelter.enqueueDogs("dog1");
+        shelter.enqueueDogs("dog2");
+        shelter.enqueueDogs("dog3");
+        //shelter.display();
+        shelter.adoptCat();
+        shelter.adoptDog();
+        shelter.adoptAnimal();
+        shelter.adoptAnimal();
+        shelter.adoptAnimal();
+        shelter.adoptAnimal();
+
+
 
 
     }
