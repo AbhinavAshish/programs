@@ -1,6 +1,4 @@
-package tree.binaryTree;
-
-import java.util.Stack;
+package tree.binaryTreeStackVersion;
 
 /**
  * Created by Abhinav on 12/31/2015.

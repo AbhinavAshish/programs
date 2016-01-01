@@ -1,142 +1,208 @@
 package tree.binaryTree;
 
-import java.util.Stack;
-
 /**
- * Created by Abhinav on 12/31/2015.
+ * Created by Abhinav on 1/1/2016.
  */
 public class BinaryTree {
-    BinaryTreeNode root;
-    int size;
-    Stack<BinaryTreeNode> temp;
 
-    public BinaryTree() {
-        root = null;
-        size = 0;
-    }
+    Node root;
 
-    public void insert(int val) {
-        root = insert(root, val);
-    }
+    public void addNode(int key, String name) {
 
-    public BinaryTreeNode insert(BinaryTreeNode node, int val) {
+        // Create a new Node and initialize it
 
-        if (node == null) {
-            node = new BinaryTreeNode();
-            node.setData(val);
-            size++;
+        Node newNode = new Node(key, name);
+
+        // If there is no root this becomes root
+
+        if (root == null) {
+
+            root = newNode;
+
         } else {
-            if (val > node.getData()) {
-                node.setRight(insert(node.getRight(), val));
+
+            // Set root as the Node we will start
+            // with as we traverse the tree
+
+            Node focusNode = root;
+
+            // Future parent for our new Node
+
+            Node parent;
+
+            while (true) {
+
+                // root is the top parent so we start
+                // there
+
+                parent = focusNode;
+
+                // Check if the new node should go on
+                // the left side of the parent node
+
+                if (key < focusNode.key) {
+
+                    // Switch focus to the left child
+
+                    focusNode = focusNode.leftChild;
+
+                    // If the left child has no children
+
+                    if (focusNode == null) {
+
+                        // then place the new node on the left of it
+
+                        parent.leftChild = newNode;
+                        return; // All Done
+
+                    }
+
+                } else { // If we get here put the node on the right
+
+                    focusNode = focusNode.rightChild;
+
+                    // If the right child has no children
+
+                    if (focusNode == null) {
+
+                        // then place the new node on the right of it
+
+                        parent.rightChild = newNode;
+                        return; // All Done
+
+                    }
+
+                }
+
+            }
+        }
+
+    }
+
+    // All nodes are visited in ascending order
+    // Recursion is used to go to one node and
+    // then go to its child nodes and so forth
+
+    public void inOrderTraverseTree(Node focusNode) {
+
+        if (focusNode != null) {
+
+            // Traverse the left node
+
+            inOrderTraverseTree(focusNode.leftChild);
+
+            // Visit the currently focused on node
+
+            System.out.println(focusNode);
+
+            // Traverse the right node
+
+            inOrderTraverseTree(focusNode.rightChild);
+
+        }
+
+    }
+
+    public void preorderTraverseTree(Node focusNode) {
+
+        if (focusNode != null) {
+
+            System.out.println(focusNode);
+
+            preorderTraverseTree(focusNode.leftChild);
+            preorderTraverseTree(focusNode.rightChild);
+
+        }
+
+    }
+
+    public void postOrderTraverseTree(Node focusNode) {
+
+        if (focusNode != null) {
+
+            postOrderTraverseTree(focusNode.leftChild);
+            postOrderTraverseTree(focusNode.rightChild);
+
+            System.out.println(focusNode);
+
+        }
+
+    }
+
+    public Node findNode(int key) {
+
+        // Start at the top of the tree
+
+        Node focusNode = root;
+
+        // While we haven't found the Node
+        // keep looking
+
+        while (focusNode.key != key) {
+
+            // If we should search to the left
+
+            if (key < focusNode.key) {
+
+                // Shift the focus Node to the left child
+
+                focusNode = focusNode.leftChild;
+
             } else {
-                node.setLeft(insert(node.getLeft(), val));
+
+                // Shift the focus Node to the right child
+
+                focusNode = focusNode.rightChild;
+
             }
 
+            // The node wasn't found
+
+            if (focusNode == null)
+                return null;
+
         }
-        return node;
+
+        return focusNode;
 
     }
 
-    //getter for size
-    public int getSize() {
-        return size;
-    }
-
-    public void preorderTraversal() {
-        temp = new Stack<BinaryTreeNode>();
-        BinaryTreeNode ptr = new BinaryTreeNode();
-        ptr = root;
-        if (ptr == null) {
-            System.out.println("the tree is empty");
-        }
-
-        while (ptr != null) {
-            System.out.println("processed  value " + ptr.getData());
-
-            if (ptr.getRight() != null) {
-                temp.push(ptr.getRight());
-            }
-            ptr = ptr.getLeft();
-            if (ptr == null && !temp.isEmpty()) {
-                ptr = temp.pop();
-
-            }
-        }
-
-    }
-
-
-    public void inorderTraversal() {
-        temp = new Stack<BinaryTreeNode>();
-        BinaryTreeNode ptr = new BinaryTreeNode();
-        ptr = root;
-
-        if (ptr == null) {
-            System.out.println("the tree is empty");
-
-        }
-        while (ptr != null) {
-
-
-            while (ptr != null) {
-                temp.push(ptr);
-                ptr = ptr.getLeft();
-            }
-
-            while (true) {
-                if (!temp.isEmpty()) {
-                    ptr = temp.pop();
-                    System.out.println("processed item  " + ptr.getData());
-                    if (ptr.getRight() != null) {
-                        ptr = ptr.getRight();
-                        break;
-                    }
-                    if (ptr.getRight() == null && temp.isEmpty()) {
-                        ptr = null;
-                        break;
-                    }
-                } else {
-                    break;
-                }
-            }
-
+    public void balancedcheck (Node root){
+        while (root.leftChild!=null){
+            balancedcheck(root.leftChild);
         }
     }
 
-    public void postorder() {
+    public static void main(String[] args) {
 
-        temp = new Stack<BinaryTreeNode>();
-        BinaryTreeNode ptr = new BinaryTreeNode();
-        ptr = root;
+        BinaryTree theTree = new BinaryTree();
 
-        if (ptr == null) {
-            System.out.println("the tree is empty");
+        theTree.addNode(50, "Boss");
 
-        }
-        while (ptr != null) {
+        theTree.addNode(25, "Vice President");
 
-            while (ptr != null) {
-                temp.push(ptr);
-                if (ptr.getRight() != null) {
-                    temp.push(ptr.getRight());
-                    ptr.getRight().signholder = -1;
-                }
-                ptr = ptr.getLeft();
+        theTree.addNode(15, "Office Manager");
 
-            }
-            while (true) {
-                if (!temp.isEmpty()) {
-                    ptr = temp.pop();
-                    if (ptr.signholder == -1) {
-                        ptr.signholder=0;
-                        break;
-                    } else {
-                        System.out.println("Processed Value " + ptr.getData());
+        theTree.addNode(30, "Secretary");
 
-                    }
-                }
-            }
+        theTree.addNode(75, "Sales Manager");
 
-        }
+        theTree.addNode(85, "Salesman 1");
+
+        // Different ways to traverse binary trees
+
+        // theTree.inOrderTraverseTree(theTree.root);
+
+        // theTree.preorderTraverseTree(theTree.root);
+
+        // theTree.postOrderTraverseTree(theTree.root);
+
+        // Find the node with key 75
+
+        System.out.println("\nNode with the key 75");
+
+        System.out.println(theTree.findNode(75));
+
     }
+
 }
