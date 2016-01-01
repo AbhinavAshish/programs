@@ -65,6 +65,7 @@ public class BinaryTree {
 
     }
 
+
     public void inorderTraversal() {
         temp = new Stack<BinaryTreeNode>();
         BinaryTreeNode ptr = new BinaryTreeNode();
@@ -75,22 +76,67 @@ public class BinaryTree {
 
         }
         while (ptr != null) {
-           
+
+
             while (ptr != null) {
                 temp.push(ptr);
                 ptr = ptr.getLeft();
             }
 
-            while (!temp.isEmpty()) {
-                ptr = temp.pop();
-                System.out.println("processed item  " + ptr.getData());
-                if (ptr.getRight() != null) {
-                    ptr = ptr.getRight();
+            while (true) {
+                if (!temp.isEmpty()) {
+                    ptr = temp.pop();
+                    System.out.println("processed item  " + ptr.getData());
+                    if (ptr.getRight() != null) {
+                        ptr = ptr.getRight();
+                        break;
+                    }
+                    if (ptr.getRight() == null && temp.isEmpty()) {
+                        ptr = null;
+                        break;
+                    }
+                } else {
                     break;
                 }
-
             }
 
         }
     }
+
+    public void postorder() {
+
+        temp = new Stack<BinaryTreeNode>();
+        BinaryTreeNode ptr = new BinaryTreeNode();
+        ptr = root;
+
+        if (ptr == null) {
+            System.out.println("the tree is empty");
+
+        }
+        while (ptr != null) {
+
+            while (ptr != null) {
+                temp.push(ptr);
+                if (ptr.getRight() != null) {
+                    temp.push(ptr.getRight());
+                    ptr.getRight().signholder = -1;
+                }
+                ptr = ptr.getLeft();
+
+            }
+            while (true) {
+                if (!temp.isEmpty()) {
+                    ptr = temp.pop();
+                    if (ptr.signholder == -1) {
+                        ptr.signholder=0;
+                        break;
+                    } else {
+                        System.out.println("Processed Value " + ptr.getData());
+
+                    }
+                }
+            }
+
+        }
     }
+}

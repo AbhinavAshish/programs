@@ -19,8 +19,8 @@ public class Sols {
         btree.insert(45);
 
         //btree.preorderTraversal();
-        btree.inorderTraversal();
-
+        //btree.inorderTraversal();
+        btree.postorder();
     }
 
 }

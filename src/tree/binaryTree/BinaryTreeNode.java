@@ -6,6 +6,7 @@ package tree.binaryTree;
 public class BinaryTreeNode {
     private BinaryTreeNode left, right;
     private int data;
+    int signholder=0;
 
     public BinaryTreeNode() {
         this.left = null;
