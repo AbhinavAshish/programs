@@ -1,5 +1,5 @@
 package tree.binaryTree;
-
+import java.math.*;
 /**
  * Created by Abhinav on 1/1/2016.
  */
@@ -167,10 +167,42 @@ public class BinaryTree {
 
     }
 
-    public void balancedcheck (Node root){
-        while (root.leftChild!=null){
-            balancedcheck(root.leftChild);
+
+    public int heightoftree(){
+        return height(root)-1;
+    }
+    private int height (Node node) {
+        int height = 0;
+        if (node == null) {
+            return height = 0;
+        } else {
+            height = Math.max(height(node.leftChild), height(node.rightChild)) + 1;
+            return height;
         }
+    }
+
+    public boolean isbalanced(Node node){
+
+        int leftHeight= height(node.leftChild);
+        int rightHeight= height(node.rightChild);
+        if (Math.abs(leftHeight-rightHeight)<=1){return true;}
+        else{return false;}
+    }
+
+    boolean check=true;
+
+    public boolean checkbalancepreorder(Node node){
+        Node tempNode = node;
+        boolean temp;
+        if (tempNode != null) {
+
+            //System.out.println(tempNode);
+            temp= isbalanced(tempNode);
+            if (temp==false){check =false;}
+            checkbalancepreorder(tempNode.leftChild);
+            checkbalancepreorder(tempNode.rightChild);
+        }
+        return check;
     }
 
     public static void main(String[] args) {
@@ -189,6 +221,13 @@ public class BinaryTree {
 
         theTree.addNode(85, "Salesman 1");
 
+        theTree.addNode(10, "Salesman 1");
+        theTree.addNode(100, "Salesman 1");
+        theTree.addNode(200, "Salesman 1");
+
+
+        //theTree.addNode(5, "Salesman 1");
+
         // Different ways to traverse binary trees
 
         // theTree.inOrderTraverseTree(theTree.root);
@@ -199,10 +238,11 @@ public class BinaryTree {
 
         // Find the node with key 75
 
-        System.out.println("\nNode with the key 75");
+        //System.out.println("\nNode with the key 75");
 
-        System.out.println(theTree.findNode(75));
-
+        //System.out.println(theTree.findNode(75));
+        //System.out.println(theTree.heightoftree());
+        System.out.println(theTree.checkbalancepreorder(theTree.root));
     }
 
 }
