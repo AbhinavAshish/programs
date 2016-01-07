@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by Abhinav on 1/7/2016.
  */
+
 public class InsertionSort {
 
 
@@ -33,6 +34,9 @@ public class InsertionSort {
         int arr[] = {5, 3, 7, 8, 4, 6, 7,0,7,66,98};
         arr=insertionSort(arr);
         printNum(arr);
+
+
     }
+
 }
 
