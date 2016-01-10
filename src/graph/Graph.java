@@ -23,7 +23,7 @@ public class Graph {
 
     void DFSUtil(int v,boolean visited[]){
         visited[v]= true;
-        System.out.println(v + " ");
+        //System.out.println(v + " ");
         Iterator<Integer> i = adj[v].listIterator();
          while (i.hasNext()){
              int n =i.next();
@@ -51,12 +51,15 @@ public class Graph {
 
     }
 
-    public void isReachable(int i, int j){
+    public boolean isReachable(int i, int j){
+        boolean visited[] = new boolean[V];
+        DFSUtil(i,visited);
+        return visited[j]== true;
 
     }
     public static void main(String args[])
     {
-        Graph g = new Graph(4);
+        Graph g = new Graph(5);
 
         g.addEdge(0, 1);
         g.addEdge(0, 2);
@@ -67,8 +70,9 @@ public class Graph {
 
         System.out.println("Following is Depth First Traversal");
 
-        g.DFS();
-        
+        //g.DFS();
+        System.out.println(g.isReachable(1,2));
+
     }
 }
 
