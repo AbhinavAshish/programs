@@ -243,6 +243,9 @@ public class BinaryTree {
         //System.out.println(theTree.findNode(75));
         //System.out.println(theTree.heightoftree());
         System.out.println(theTree.checkbalancepreorder(theTree.root));
+
+
+
     }
 
 }
