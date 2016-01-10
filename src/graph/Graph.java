@@ -51,6 +51,9 @@ public class Graph {
 
     }
 
+    public void isReachable(int i, int j){
+
+    }
     public static void main(String args[])
     {
         Graph g = new Graph(4);
@@ -65,7 +68,7 @@ public class Graph {
         System.out.println("Following is Depth First Traversal");
 
         g.DFS();
-
+        
     }
 }
 
