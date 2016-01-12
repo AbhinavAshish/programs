@@ -171,6 +171,7 @@ public class BinaryTree {
     public int heightoftree(){
         return height(root)-1;
     }
+
     private int height (Node node) {
         int height = 0;
         if (node == null) {
