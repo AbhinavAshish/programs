@@ -95,6 +95,27 @@ public class BinaryTree {
         return temp;
     }
 
+    public boolean nodeExists(int val) {
+        boolean temp = nodeExistsutil(root, val);
+        return temp;
+    }
+
+    static boolean alpha = false;
+
+    public boolean nodeExistsutil(Node focusNode, int val) {
+
+        if (focusNode != null) {
+            if (focusNode.val == val) {
+                alpha = true;
+            }
+
+            findNode(focusNode.left, val);
+            findNode(focusNode.right, val);
+
+        }
+        return alpha;
+    }
+
 
     public void inorderSuccesor(Node focusNode) {
 
@@ -119,8 +140,43 @@ public class BinaryTree {
             }
         }
 
+    }
+
+    public void findCommonAnsecotor(int val1, int val2, Node focusnode) {
+
+        if (val1 == focusnode.val || val2 == focusnode.val) {
+            System.out.println("Ancsetor is " + focusnode.val);
+        } else {
+            temp = null;
+            Node temp1 = findNode(focusnode.left, val1);
+            temp = null;
+
+            Node temp2 = findNode(focusnode.left, val2);
+            temp = null;
+
+            Node temp3 = findNode(focusnode.right, val1);
+            temp = null;
+
+            Node temp4 = findNode(focusnode.right, val2);
+            System.out.println(temp4 == null);
+            temp = null;
+
+            if ((temp1 != null && temp3 != null) || (temp1 != null && temp4 != null)||(temp2 != null && temp3 != null)
+                    ||(temp2 != null && temp4 != null)) {
+                System.out.println("Ancsetor is " + focusnode.val);
+            } else if (temp1 != null && temp2 != null) {
+                System.out.println(focusnode.val);
+                findCommonAnsecotor(val1, val2, focusnode.left);
+            } else if (temp3 != null && temp4 != null) {
+                System.out.println(focusnode.val);
+                findCommonAnsecotor(val1, val2, focusnode.right);
+            }
+
+
+        }
 
     }
+
 
     public static void main(String[] args) {
 
@@ -134,9 +190,9 @@ public class BinaryTree {
         tree.add(10);
         tree.add(14);
         tree.add(22);
-        Node node = tree.findNode(root,20);
-        tree.inorderSuccesor(node);
-
+        Node node = tree.findNode(root, 20);
+        //tree.inorderSuccesor(node);
+        tree.findCommonAnsecotor(8, 10, root);
 
     }
 }
